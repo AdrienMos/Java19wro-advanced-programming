@@ -1,5 +1,6 @@
 import HashSet.StringHashSet;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -28,7 +29,27 @@ public class Application {
         end = System.currentTimeMillis();
         System.out.println(end - start);
 
+        Set<String> set1 = new HashSet<>();
+        set1.add("Ala");
+        set1.add("Alan");
+        set1.add("Marek");
+        set1.add("Marek");
+        set1.add("Jakub");
+
+
         System.out.println(set);
+
+        //Zad. contains
+//        System.out.println(set.contains("Ala"));
+        //Zad. remove
+//        System.out.println(set.remove("Jakub"));
+//        System.out.println(set);
+
+        //Zad. size
+        System.out.println(set.size());
+
+        //Zad. isEmpty
+        System.out.println(set.isEmpty());
 
     }
 

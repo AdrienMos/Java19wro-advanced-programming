@@ -19,16 +19,25 @@ public class StringHashSet implements Set<String> {
 
     @Override
     public int size() {
-        return 0;
+        int sum = 0;
+        for (List<String> bucket : this.buckets) {
+            sum = sum + bucket.size();
+        }
+        return sum;
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return size() == 0;
     }
 
     @Override
     public boolean contains(Object o) {
+        for (List<String> bucket : this.buckets) {
+            if (bucket.contains(o)) {
+                return true;
+            }
+        }
         return false;
     }
 
@@ -55,7 +64,7 @@ public class StringHashSet implements Set<String> {
     @Override
     public boolean add(String s) {
         int hash = s.hashCode();
-        int index = hash % this.buckets.size();
+        int index = Math.abs(hash % this.buckets.size());
         if (buckets.get(index).contains(s)) {
             return false;
         }
@@ -65,6 +74,12 @@ public class StringHashSet implements Set<String> {
 
     @Override
     public boolean remove(Object o) {
+        for (List<String> bucket : this.buckets) {
+            if (bucket.contains(o)) {
+                bucket.remove(o);
+                return true;
+            }
+        }
         return false;
     }
 
@@ -75,7 +90,18 @@ public class StringHashSet implements Set<String> {
 
     @Override
     public boolean addAll(Collection<? extends String> c) {
-        return false;
+
+        boolean changed = false;
+
+//        for (String s : stringsToAdd) {
+//            if (!this.contains(s)) {
+//                this.add(s);
+//                this.size()++;
+//
+//            }
+//        }
+//
+//        return false;
     }
 
     @Override

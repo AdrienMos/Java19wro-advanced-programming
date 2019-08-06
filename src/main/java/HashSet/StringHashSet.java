@@ -96,6 +96,10 @@ public class StringHashSet implements Set<String> {
     @Override
     public void clear() {
 
+        for (List<String> bucket : this.buckets) {
+            bucket.clear();
+        }
+
     }
 
     @Override

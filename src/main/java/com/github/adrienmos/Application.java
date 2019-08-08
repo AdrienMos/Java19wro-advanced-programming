@@ -1,6 +1,7 @@
 package com.github.xenteros;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.IntStream;
 
@@ -11,6 +12,12 @@ class Application {
 
     public static void main(String[] args) {
 
+        Map<String, String> map = new CustomHashMap<String, String>();
+
+        map.put("Jan", "Kowalski");
+        map.put("Danuta", "Nowak");
+
+        System.out.println(map);
 
     }
 

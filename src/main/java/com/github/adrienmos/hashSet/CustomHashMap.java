@@ -1,4 +1,9 @@
+package
+
 import java.util.*;
+
+import static java.util.stream.Collectors.toSet;
+
 public class CustomHashMap<K, V> implements Map<K, V> {
     private HashSet<EntryImpl<K, V>> storage;
     public CustomHashMap() {
@@ -22,6 +27,9 @@ public class CustomHashMap<K, V> implements Map<K, V> {
     }
     @Override
     public V get(Object key) {
+
+
+
         return null;
     }
     @Override
@@ -35,6 +43,7 @@ public class CustomHashMap<K, V> implements Map<K, V> {
     }
     @Override
     public V remove(Object key) {
+
         return null;
     }
     @Override
@@ -45,11 +54,15 @@ public class CustomHashMap<K, V> implements Map<K, V> {
     }
     @Override
     public Set<K> keySet() {
-        return null;
+        return storage.stream()
+                .map(entry -> entry.getKey())
+                .collect(toSet());
     }
     @Override
     public Collection<V> values() {
-        return null;
+        return storage.stream()
+                .map(EntryImpl :: getValue)
+                .collect(toSet());
     }
     @Override
     public Set<Entry<K, V>> entrySet() {

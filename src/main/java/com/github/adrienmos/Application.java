@@ -1,4 +1,6 @@
-package com.github.xenteros;
+package com.github.adrienmos;
+
+import CustomHashMap.CustomHashMap;
 
 import java.util.List;
 import java.util.Map;
